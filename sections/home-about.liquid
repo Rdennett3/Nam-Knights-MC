@@ -1,0 +1,105 @@
+{{ base.css | asset_url |stylesheet_tag }}
+{{ home-about.css |  asset_url |  stylesheet_tag }}
+
+<div class="new-home-about-container">
+  <div class="new-home-about-wrapper">
+   <div class="about-item">
+     {{ section.settings.about-info-new }}
+     <a href="https://www.namknights.org/default.aspx" target="_blank" class="about-btn">Learn More</a>
+   </div>
+   <div class="about-item reveal">
+    <img src="https://cdn.shopify.com/s/files/1/0669/8097/0755/files/nam-about-cropped.png?v=1700515302" alt="">
+   </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Homepage About",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "about-info-new",
+        "label": "About Section Information"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .new-home-about-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:3em;
+}
+
+.new-home-about-wrapper {
+    width: 90%;
+    height: auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:auto;
+    grid-template-areas:". .";
+    gap:1em;
+}
+
+@media screen and (max-width:1000px){
+  .new-home-about-wrapper{
+    grid-template-columns:1fr;
+    grid-template-areas:".";
+  }
+}
+
+.about-item{
+  width:100%;
+  height:auto;
+  min-height:40vh;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+.about-item a{
+  color:var(--kelly);
+  text-decoration:none;
+}
+
+.about-item h1{
+  font-size: 3vw;
+    font-weight: 900;
+    font-family: 'Roboto Condensed';
+    margin:0;
+}
+
+{% endstylesheet %}
+
+{% javascript %}
+// gsap.registerPlugin(ScrollTrigger);
+
+// let revealContainers = document.querySelectorAll(".reveal");
+
+// revealContainers.forEach((container) => {
+//   let image = container.querySelector("img");
+//   let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: container,
+//       toggleActions: "restart none none reset"
+//     }
+//   });
+
+//   tl.set(container, { autoAlpha: 1 });
+//   tl.from(container, 1.5, {
+//     xPercent: -100,
+//     ease: Power2.out
+//   });
+//   tl.from(image, 1.5, {
+//     xPercent: 100,
+//     delay: -1.5,
+//     ease: Power2.out
+//   });
+// });
+{% endjavascript %}

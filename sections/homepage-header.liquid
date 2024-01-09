@@ -1,0 +1,32 @@
+{{ base.css | asset_url | stylesheet_tag }}
+
+<div class="new-home-header-container">
+  <div class="new-home-header-wrapper">
+    <div class="new-home-header-item">
+      <h1 class="headline">Southern Tier Chapter of the Nam Knights</h1>
+    </div>
+    {% comment %} <div class="new-home-header-item">
+      <img src="https://cdn.shopify.com/s/files/1/0669/8097/0755/files/flag-cropped.png?v=1699562299" alt="" id="header-image">
+    </div> {% endcomment %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Homepage Header",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+<script>
+  gsap.from('.headline', {y:100, autoAlpha:0, stagger:.15});
+</script>
+
+{% javascript %}
+
+{% endjavascript %}

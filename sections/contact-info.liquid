@@ -1,0 +1,53 @@
+{{ base.css | asset_url | stylesheet_tag }}
+
+<div class="contact-info-container">
+  <div class="contact-info-wrapper">
+    <div class="contact-info-item">
+      <h1>Chapter Officers</h1>
+      {{ section.settings.officers }}
+    </div>
+    <div class="contact-info-item">
+      <h1 id="contact">Active Members</h1>
+      {{ section.settings.members }}
+    </div>
+  </div>
+  <div class="contact-info-wrapper">
+    <div class="contact-info-item">
+      <h1>Retired Members</h1>
+      {{ section.settings.retired }}
+    </div>
+    <div class="contact-info-item">
+      <h1>Eternal Chapter Members</h1>
+      {{ section.settings.eternal }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "officers",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "officers",
+        "label": "Contact page Officers list"
+      },
+      {
+        "type": "richtext",
+        "id": "members",
+        "label": "contact page members list"
+      },
+      {
+        "type": "richtext",
+        "id": "retired",
+        "label": "Contact page Retired Members list"
+      },
+      {
+        "type": "richtext",
+        "id": "eternal",
+        "label": "Contact page eternal list"
+      }
+    ]
+  }
+{% endschema %}

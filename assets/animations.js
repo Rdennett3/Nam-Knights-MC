@@ -100,3 +100,216 @@ if (Shopify.designMode) {
   document.addEventListener('shopify:section:load', (event) => initializeScrollAnimationTrigger(event.target, true));
   document.addEventListener('shopify:section:reorder', () => initializeScrollAnimationTrigger(document, true));
 }
+
+gsap.registerPlugin(ScrollTrigger);
+
+// HOMEPAGE REVEAL ANIMATION
+let revealContainers = document.querySelectorAll(".reveal");
+
+revealContainers.forEach((container) => {
+  let image = container.querySelector("img");
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+    }
+  });
+
+  tl.set(container, { autoAlpha: 1 });
+  tl.from(container, 1.5, {
+    xPercent: -100,
+    ease: Power2.out
+  });
+  tl.from(image, 1.5, {
+    xPercent: 100,
+    delay: -1.5,
+    ease: Power2.out
+  });
+});
+
+// HOMEPAGE HFFK ANIMATION
+let namemm = gsap.matchMedia();
+
+namemm.add("(min-width:900px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".curved-container",
+      start: "top 40%",
+      end: "top 10%",
+      pin: true,
+      // scrub: true,
+      // markers: true,
+    }
+  });
+  tl.from(".curved-container h1 .kffk", {
+    y: -250,
+    autoAlpha: 0,
+    stagger: .15,
+  })
+  tl.to('.curved-container h1 .kffk', {
+    y: 0,
+    autoAlpha: 1,
+    stagger: .25,
+  })
+})
+
+namemm.add("(max-width:899px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".curved-container",
+      start: "top 40%",
+      end: "top 10%",
+      pin: true,
+      // scrub: true,
+      // markers: true,
+    }
+  });
+  tl.from(".curved-container h1 .kffk", {
+    y: -250,
+    autoAlpha: 0,
+    stagger: .15,
+  })
+  tl.to('.curved-container h1 .kffk', {
+    y: 0,
+    autoAlpha: 1,
+    stagger: .25,
+  })
+})
+
+// FOOTER SECTION LINKS
+
+let footermm = gsap.matchMedia();
+
+footermm.add("(min-width:900px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#footer-item-2",
+      start: "top 80%",
+      end: "top 70%",
+      // pin: true,
+      // scrub: true,
+      // markers: true,
+    }
+  });
+  tl.from("#footer-item-2 a", {
+    y: 50,
+    autoAlpha: 0,
+    stagger: .25,
+  })
+  tl.to('#footer-item-2 a', {
+    y: 0,
+    autoAlpha: 1,
+    stagger: .25,
+  })
+})
+
+footermm.add("(max-width:899px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".home-tile-wrapper",
+      start: "top 50%",
+      end: "top 20%",
+      // pin: true,
+      // markers:true,
+      // scrub: true,
+    }
+  });
+  tl.to("#pinnedh1", {
+    duration: 1,
+    // y:"80%",
+    scale: 3,
+  })
+})
+
+// CONTACT INFO SECTION ANIMATIONS
+
+let officersmm = gsap.matchMedia();
+
+officersmm.add("(min-width:900px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".contact-info-container",
+      start: "top 80%",
+      end: "top 50%",
+      // pin: true,
+      // scrub: true,
+      // markers: true,
+    }
+  });
+  tl.from(".contact-info-item p", {
+    y: 50,
+    autoAlpha: 0,
+    stagger: .15,
+    scale: 1.1,
+  })
+  tl.to('.contact-info-item p', {
+    y: 0,
+    autoAlpha: 1,
+    stagger: .15,
+  })
+})
+
+footermm.add("(max-width:899px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".home-tile-wrapper",
+      start: "top 50%",
+      end: "top 20%",
+      // pin: true,
+      // markers:true,
+      // scrub: true,
+    }
+  });
+  tl.to("#pinnedh1", {
+    duration: 1,
+    // y:"80%",
+    scale: 3,
+  })
+})
+
+// HOMEPAGE TILE ITEMS
+let tilemm = gsap.matchMedia();
+
+tilemm.add("(min-width:900px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".home-tile-wrapper",
+      start: "top 80%",
+      end: "top 50%",
+      // pin: true,
+      // scrub: true,
+      // markers: true,
+    }
+  });
+  tl.from(".home-tile-item", {
+    y: 100,
+    autoAlpha: 0,
+    stagger: .15,
+    scale: .98,
+    skewY: 5,
+  })
+  tl.to('.home-tile-item', {
+    y: 0,
+    autoAlpha: 1,
+    stagger: .15,
+  })
+})
+
+footermm.add("(max-width:899px)", () => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".home-tile-wrapper",
+      start: "top 50%",
+      end: "top 20%",
+      // pin: true,
+      // markers:true,
+      // scrub: true,
+    }
+  });
+  tl.to("#pinnedh1", {
+    duration: 1,
+    // y:"80%",
+    scale: 3,
+  })
+})
+// END HOMEPAGE TILE ITEMS
+

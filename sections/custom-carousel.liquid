@@ -1,0 +1,93 @@
+{{ base.css | asset_url | stylesheet_tag }}
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <!-- Swiper slides will be added here -->
+  </div>
+  <!-- Add pagination and navigation if needed -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+{% schema %}
+  {
+    "name": "custom carousel",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "slider1",
+        "label": "Slider Image 1"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .swiper{
+    width:100%;
+    height:auto;
+  }
+  .swiper-wrapper{
+    width:100%;
+    height:auto;
+  }
+  .swiper-slide{
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+  .swiper-slide img{
+    width: 100%;
+    height: auto;
+  }
+
+  .info-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    width:600px;
+    height:auto;
+    padding:25px;
+    background:rgba(0,0,0,.5);
+    border-radius:25px;
+  }
+
+  .swiper-slide .info-container h1{
+    font-size:6em;
+    font-weight:bold;
+    color:#fff;
+    margin:0;
+  }
+  .swiper-slide .info-container p{
+    color:#fff;
+    padding:20px;
+    font-size:1.25em;
+  }
+{% endstylesheet %}
+
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    // Swiper options here
+    slidesPerView: 1,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  {% for image in section.settings.image_picker_block %}
+    var slide = document.createElement('div');
+    slide.classList.add('swiper-slide');
+    var imageElement = document.createElement('img');
+    imageElement.src = {{ image | asset_url | json }};
+    slide.appendChild(imageElement);
+    document.querySelector('.swiper-wrapper').appendChild(slide);
+  {% endfor %}
+</script>

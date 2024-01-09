@@ -7,6 +7,12 @@
         "padding_bottom": 36
       }
     },
+    "contact-intro": {
+      "type": "contact-intro",
+      "settings": {
+        "contact-intro-txt": "<p>Have questions? Fill out the form below or send an email to southerntiernk@gmail.com and we will get back to you as soon as we can.<\/p>"
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -16,10 +22,21 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "contact-info": {
+      "type": "contact-info",
+      "settings": {
+        "officers": "<p>President: David “Rancher” Halaquist<\/p><p>Vice President: Paul “Shiner” Olsen<\/p><p>Secretary: Chad “Contempt” Hall<\/p><p>Treasurer: Davd “Hollywood” Smith<\/p><p>1st Sargent at Arms: Joshua “Bugz” Palmer<\/p><p>2nd Sargent at Arms: Delbert “Snapper” Van Dyke<\/p><p>Road Captain: Gregg “Bulldog” Eldridge”<\/p>",
+        "members": "<p>Mike “Tonto” Campbell<\/p><p>Donald “Gunner” Cantwell<\/p><p>George “Banjo” Denys<\/p><p>Fred “Dutch” Deutcsh<\/p><p>Jody “Ambassador” Griffin<\/p><p>Joe “Papa Joe” Griffin<\/p><p>Gerd “Wrench” Prehna<\/p><p>Bill “Nubs” Troost<\/p>",
+        "retired": "<p>Mike “Chunk” Allen<\/p><p>Bobby “Snip” DiBenedito<\/p>",
+        "eternal": "<p>Ronnie “Shoes” Pastore - 2018<\/p><p>Gary “Nonstop” Lord - 2020<\/p>"
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "contact-intro",
+    "form",
+    "contact-info"
   ]
 }

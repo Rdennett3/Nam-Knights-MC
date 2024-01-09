@@ -1,0 +1,27 @@
+{{ base.css | asset_url | stylesheet_tag }}
+
+<div class="contact-intro-container">
+  <div class="contact-intro-wrapper">
+    {{ section.settings.contact-intro-txt }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "contact-intro-txt",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "contact-intro-txt",
+        "label": "Contact Intro Text Area"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,60 @@
+{{ base.css |  asset_url | stylesheet_tag}}
+
+<div class="new-home-tile-container">
+  <div class="new-home-tile-wrapper">
+    <div class="new-home-tile-section">
+    {{ section.settings.home-collection-title }}
+  </div>
+  <div class="new-home-tile-section">
+    <div class="home-tile-inner-item"></div>
+    <div class="home-tile-inner-item"></div>
+    <div class="home-tile-inner-item"></div>
+  </div>
+  </div>
+</div>
+
+{% comment %} <div class="home-tile-outer">
+  <div class="home-tile-wrapper">
+    <div class="home-tile-section">
+      <h1>{{ section.settings.collection-title }}</h1>
+    </div>
+    <div class="home-tile-section">
+      <div class="home-tile-item">
+      <img src="https://cdn.shopify.com/s/files/1/0669/8097/0755/files/placeholder-1-1.webp?v=1700590372" alt="">
+      <h2 style="color:red;">Members Only Gear</h2>
+    </div>
+    <div class="home-tile-item">
+      <img src="https://cdn.shopify.com/s/files/1/0669/8097/0755/files/placeholder-1-1.webp?v=1700590372" alt="">
+      <h2>Ladies Gear</h2>
+    </div>
+    <div class="home-tile-item">
+      <img src="https://cdn.shopify.com/s/files/1/0669/8097/0755/files/placeholder-1-1.webp?v=1700590372" alt="">
+      <h2>Support Gear</h2>
+    </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+<div class="curved-container">
+  <h1><div class="kffk">K</div><div class="kffk">.</div><div class="kffk">F</div><div class="kffk">.</div><div class="kffk">F</div><div class="kffk">.</div><div class="kffk">K</div></h1>
+</div>
+
+{% schema %}
+  {
+    "name": "homepage-tiles",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "collection-title",
+        "label": "collection section headline"
+      }
+    ]
+  }
+  {% endschema %}
+  
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
